@@ -58,5 +58,4 @@ Caused by: java.lang.ClassNotFoundException: TestListExamples.java
 	at org.junit.internal.Classes.getClass(Classes.java:27)
 	at org.junit.runner.JUnitCommandLineParseResult.parseParameters(JUnitCommandLineParseResult.java:98)
 	... 4 more". The standard error is empty for this command, as can be seen in the error-output.txt file.
-
     Lastly, the if loop in the end, the initial if condition was met, because the exit code returned 0. Therefore, the code echoed "Succeeded!". Any other exit code beside 0 would have resulted in an echo of "Failed!". Echo "Failed" did not run due to the exit code being 0. Only one of the if conditions could be met.
