@@ -15,6 +15,13 @@ javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java
 java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples.java 2> error-output.txt
 
 javac ListExamples.java
+
+if [ $? -eq 0 ];
+ then
+    echo "Succeeded!"
+else
+    echo "Failed!"
+fi
 ```
 image one:
 ![Alt text](First.png)
@@ -51,3 +58,5 @@ Caused by: java.lang.ClassNotFoundException: TestListExamples.java
 	at org.junit.internal.Classes.getClass(Classes.java:27)
 	at org.junit.runner.JUnitCommandLineParseResult.parseParameters(JUnitCommandLineParseResult.java:98)
 	... 4 more". The standard error is empty for this command, as can be seen in the error-output.txt file.
+
+    Lastly, the if loop in the end, the initial if condition was met, because the exit code returned 0. Therefore, the code echoed "Succeeded!". Any other exit code beside 0 would have resulted in an echo of "Failed!". Echo "Failed" did not run due to the exit code being 0. Only one of the if conditions could be met.
