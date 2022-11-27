@@ -73,15 +73,20 @@ In the first image, the exit code for the rm -rf files is 0 for success. The sta
 
 Next is the javac and java command for the JUNIT tester program. This program ran javac and java for JUNIT smoothly. The commands printed out the amount of tests run and the failures there was. I made the output of the java and javac to a new file named err-text.txt. If the compiled succeed, the exit code will be 0, giving an echo of "Success compile". Furthermore, the standard output prints out this to the screen:
  ```
+Result of JUnit testing:
 JUnit version 4.13.2
-.E
-Time: 0.116
+..E
+Time: 0.025
 There was 1 failure:
-1) testTimeout(TestListExamples)
-org.junit.runners.model.TestTimedOutException: test timed out after 100 milliseconds
-	at app//TestListExamples.testTimeout(TestListExamples.java:7)
+1) testFilter(TestListExamples)
+java.lang.AssertionError: expected:<[Dad, sad, bad]> but was:<[bad, sad, Dad]>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at TestListExamples.testFilter(TestListExamples.java:54)
 
 FAILURES!!!
-Tests run: 1,  Failures: 1
+Tests run: 2,  Failures: 1
 ```
-The standard error is empty for this command, as can be seen in the err-text.txt file. The standard output gives an exit code of 0 for success and 1 otherwise. Lastly, the if loop in the end, the initial if condition was not met, because the exit code returned something other than 0. Therefore, the code echoed "The final grade is now 50%", as there was a failure in JUnit testing. NOTE: in all the if statements, only one statement can be met, therefore one of the if conditions will not be run!!
+The standard error is empty for this command, as can be seen in the err-text.txt file. The standard output gives an exit code of 0 for success and 1 otherwise. Lastly, the if loop in the end, the initial if condition was not met, because the exit code returned something other than 0. Therefore, the code echoed "The final grade is now 50%", as there was a failure in JUnit testing, but the code compiled. NOTE: in all the if statements, only one statement can be met, therefore one of the if conditions will not be run!!
